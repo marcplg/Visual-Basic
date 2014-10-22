@@ -1,0 +1,10 @@
+'what am I doing wrong here?
+
+
+
+Public Class Form1
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        My.Computer.FileSystem.CopyFile("C:\NormalEmail.dotm", "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Templates\NormalEmail.dotm", overwrite:=True)
+    End Sub
+End Class

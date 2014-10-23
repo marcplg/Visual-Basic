@@ -1,0 +1,14 @@
+Public Class Form1
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim QuickPart As String = Environ("appdata") & ("\Microsoft\Templates\normalemail.dotm")
+        MsgBox("Click OK to close Outlook")
+        Shell("cmd.exe /c TASKKILL /IM OUTLOOK.exe /F")
+        System.Threading.Thread.CurrentThread.Sleep(5000)
+        My.Computer.FileSystem.DeleteFile(Environ("appdata") & "\Microsoft\Templates\normalemail.dotm")
+        System.Threading.Thread.CurrentThread.Sleep(5000)
+        My.Computer.FileSystem.CopyFile("C:\IT\Scripts\QuickParts\normalemail.dotm", QuickPart, overwrite:=True)
+        System.Diagnostics.Process.Start("outlook.exe")
+        MsgBox("Quick Parts is Now Installed")
+    End Sub
+End Class
